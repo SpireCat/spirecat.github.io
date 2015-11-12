@@ -11,5 +11,5 @@ title: October Details
 <p align="center"><img src="/image/oc1.jpg" width="300" height="300"></p>
 <p align="center"><img src="/image/oc2.jpg" width="300" height="300"></p>
 <p align="center"><img src="/image/oc3.jpg" width="300" height="300"></p>
-<p align="center"><img src="/image/oc4.jpg" width="300" height="300"></p>
+<p align="center"><img src="/image/oc4.jpg" width="300" height="200"></p>
 
