@@ -8,8 +8,8 @@ title: October Details
 <p align="center">要么热死我</p>
 <p align="center">要么冻死我</p>
 <p align="center">别这样唬人</p>
-<p align="center"><img src="/image/oc1.jpg" /></p>
-<p align="center"><img src="/image/oc2.jpg" /></p>
-<p align="center"><img src="/image/oc3.jpg" /></p>
-<p align="center"><img src="/image/oc4.jpg" /></p>
+<p align="center"><img src="/image/oc1.jpg" width="100" height="100"></p>
+<p align="center"><img src="/image/oc2.jpg" width="100" height="100"></p>
+<p align="center"><img src="/image/oc3.jpg" width="100" height="100"></p>
+<p align="center"><img src="/image/oc4.jpg" width="100" height="100"></p>
 
