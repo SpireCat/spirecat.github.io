@@ -1,5 +1,5 @@
 ---
-title: Expcerpt from the Soul
+title: Excerpt from the Soul
 ---
 <p align="center">你要做一个不动声色的大人了。<br/>不准情绪化，不准偷偷想念，不准回头看。
 <br/>去过自己另外的生活。
