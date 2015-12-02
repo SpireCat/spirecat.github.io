@@ -18,49 +18,49 @@ title: A path search algorithm in python
 <p class="indent">2.如何解决含环的图结构？实话说这个还是有一定的技术含量的，当对整个压栈过程了如指掌时，我们可以发现，无论是否含有环的结构，任何一条路径在遍历是都只能走过一次图中的任意一条边。简单来说，也就是单向图的结构不存在重复遍历的边。那么，结合上文中埋下的伏笔，当我们进行压栈时，就不能把压栈元素的所有前点集全部压入堆栈中，而是需要排除掉那些已经压入堆栈的边中的前点。虽然在程序中实现只是一条if语句，但是需要关注的是整个含环图中的回溯思想。为了更好的展示算法，我做了一个简化模型，图结构如图[4]所示。图[4]后面是简化模型的Python源码，之后的图[5]是运行结果。</p>
 <p><img src="/image/2015120304.jpg" /></p>
 <p align="center"><small>图 [4]</small></p>
-<code>mylist=[[1,2]]<br />
-lenth=1<br />
-count=1<br />
-supers=[[1,2],[2,3,5],[3,4,6],[4,2],[6,7],[7,3]]<br />
-starts=[5]<br />
-while mylist:<br />
-    print "--",mylist<br />
-    toplen=len(mylist[lenth-1])<br />
-    t=lenth<br />
-    zhan=[]<br />
-    for item in mylist:<br />
-        zhan.append(item[0])<br />
-    if toplen>1:<br />
-        temp=mylist[lenth-1][1]<br />
-        del(mylist[lenth-1][1]) <br />           
-        excepts=[]<br />
-        for item in zhan:<br />
-            if temp==item:<br />
-                excepts.append(zhan[zhan.index(item)+1])<br />
-        for su in supers:<br />
-            if su[0]==temp:<br />
-                ss=[]<br />
-                for item in su:<br />
-                    if item not in excepts:<br />
-                        ss.append(item)<br />
-                mylist.append(ss)<br />
-                lenth+=1<br />
-        if t==lenth:<br />
-            mylist.append([temp])<br />
-            lenth+=1<br />
-    else:<br />
-        if mylist[lenth-1][0] in starts:<br />
-            print "Rout NO.",count<br />
-            count+=1<br />
-            for item in mylist:<br />
-                print item[0]<br />
-            del(mylist[lenth-1])<br />
-            lenth-=1<br />
-        else:<br />
-            del(mylist[lenth-1])<br />
-            lenth-=1<br />
+<code><pre>mylist=[[1,2]]
+lenth=1
+count=1
+supers=[[1,2],[2,3,5],[3,4,6],[4,2],[6,7],[7,3]]
+starts=[5]
+while mylist:
+    print "--",mylist
+    toplen=len(mylist[lenth-1])
+    t=lenth
+    zhan=[]
+    for item in mylist:
+        zhan.append(item[0])
+    if toplen>1:
+        temp=mylist[lenth-1][1]
+        del(mylist[lenth-1][1])            
+        excepts=[]
+        for item in zhan:
+            if temp==item:
+                excepts.append(zhan[zhan.index(item)+1])
+        for su in supers:
+            if su[0]==temp:
+                ss=[]
+                for item in su:
+                    if item not in excepts:
+                        ss.append(item)
+                mylist.append(ss)
+                lenth+=1
+        if t==lenth:
+            mylist.append([temp])
+            lenth+=1
+    else:
+        if mylist[lenth-1][0] in starts:
+            print "Rout NO.",count
+            count+=1
+            for item in mylist:
+                print item[0]
+            del(mylist[lenth-1])
+            lenth-=1
+        else:
+            del(mylist[lenth-1])
+            lenth-=1
 print "-------------------------------------------"
-</code>
+</pre></code>
 <p><img src="/image/2015120305.jpg" /></p>
 <p align="center"><small>图 [5]</small></p>
 <p class="indent">实际上到这里该BB的都已经BB得差不多了。但是为了升华主题，正好也是回答了之前有个朋友问我的一句话，他问“你和吴彦祖哪个更帅一些”，我的答案是“番茄与西红柿马铃薯与土豆吴彦祖与我”。</p>
