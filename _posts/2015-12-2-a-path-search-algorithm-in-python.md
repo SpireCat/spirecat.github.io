@@ -64,3 +64,4 @@ print "-------------------------------------------"
 <p><img src="/image/2015120305.jpg" /></p>
 <p align="center"><small>图 [5]</small></p>
 <p class="indent">实际上到这里该BB的都已经BB得差不多了。但是为了升华主题，正好也是回答了之前有个朋友问我的一句话，他问“你和吴彦祖哪个更帅一些”，我的答案是“番茄与西红柿马铃薯与土豆吴彦祖与我”。</p>
+<p class="indent"><small>转载文章请注明出自“Spirecat's Blog（spirecat.github.io）”。分享至上，内容拒绝商业用途。</small></p>
