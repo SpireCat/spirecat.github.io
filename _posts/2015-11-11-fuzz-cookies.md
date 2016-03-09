@@ -2,7 +2,7 @@
 layout: post
 title: 利用高校教务系统cookie漏洞进行Fuzz爆破
 date: 2015-11-11 16:22:34
-categories: 网络安全
+categories: WEB安全
 permalink: /archivers/fuzz_cookie
 ---
 <style type="text/css">
