@@ -1,6 +1,15 @@
 ---
-title: A path search algorithm in python
+layout: post
+title: 使用Python实现有向图的路径搜索算法
+date: 2015-12-2 14:22:10
+categorise: 算法初步
+permalink: /archivers/python_rout_search
 ---
+<style type="text/css">
+    .indent{
+        text-indent:2em;
+    }
+</style>
 <p class="indent">掌握一门高级语言的标准绝不是多知道几个API而已，那只是一个必要非充分条件。</p>
 <p class="indent">虽然开门见山是自打小学起就被语文老师赞许的作文手段，但是为了充分尊重处女座以及尚未被好奇心害死的猫们，我还是简单叙述一下原委。如果你是单纯奔着算法来的，略过此段剩余88个字。算法是由于现在做的一个恶意APP判别的项目的其中一步重要工作是根据依靠Flowdroid对APK文件进行静态分析得到的dot图找到任意一个Sink点通往入度为0的节点的所有路径。</p>
 <p class="indent">本算法目的在于，基于某个已知的单向含环有向图，找到图中任意一个节点上行至所有可达的入度为0的节点的全部路径。</p>
