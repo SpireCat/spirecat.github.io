@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "如何创建一个这样的博客？"
+title:  关于本站——如何创建一个这样的博客？
 date:   2015-2-3 09:00:13
-categories: 关于本站
+categories: WEB前端
 permalink: /archivers/hello
 ---
 <style type="text/css">

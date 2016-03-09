@@ -1,8 +1,8 @@
 ---
 layout: post
-title: 使用Python实现有向图的路径搜索算法
+title: 算法——使用Python实现有向图的路径搜索算法
 date: 2015-12-2 14:22:10
-categories: 算法初步
+categories: 安卓恶意应用分析
 permalink: /archivers/python_rout_search
 ---
 <style type="text/css">
