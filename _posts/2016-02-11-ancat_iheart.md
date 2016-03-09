@@ -1,11 +1,9 @@
 ---
 layout: null
 ---
-<!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>ANICAT: Projects and Work</title>
     <style id="style-tag"></style>
     <script src="js/dist/app.js"></script>
     <link rel="icon" type="image/png" sizes="32x32" href="/ico/favicon-32x32.png">
