@@ -10,13 +10,8 @@ description: >
 email: spirecat@163.com
 author: Sun Jian
 avatar: "/img/ico.jpg"
-profile: 有Code、有诗、也有食
-#twitter_username: twitter_username
-#github_username:  github_username
+profile: 有Code、有食、也有诗
 
-# Comment Service (Disqus or 多说)
-#  choose one and un-comment the line to active it
-#disqus_shortname: xxx   # get one: https://disqus.com/admin/signup/
 #duoshuo_shortname: xxx  # get one: http://duoshuo.com/create-site/
 
 permalink: /archivers/:title
