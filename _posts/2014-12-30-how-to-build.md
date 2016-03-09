@@ -1,12 +1,16 @@
 ---
 layout: post
-title:  "Welcome to Jekyll and EasyBook"
+title:  "How to build a blog like this?"
 date:   2014-12-30 09:00:13
 categories: jekyll update
 permalink: /archivers/hello
 ---
-
-<p><img src="/image/201.jpg" /></p>
+<style type="text/css">
+	.indent{
+		text-indent:2em;
+	}
+</style>
+<p><img src="/img/201.jpg" /></p>
 <p class="indent">实际上，并不是每一个人都喜欢去写自己的Blog。</p>
 <p class="indent">因为和建立多数普通网站一样，搭建个人Blog需要面对域名、空间、数据库管理等一系列需要斟酌和计划的问题。然而，当你把目标降低，只希冀于建立一个简洁静态网站时，选择开始变得慢慢多了起来。但需要明确的是，简洁≠简单。</p>
 <p class="indent"><a href="http://jekyll.bootcss.com/">Jekyll</a>的使用就可以帮助你更快的达成自己的目的。当然除了Jekyll以外，你还需要具有HTML、Markdown等网页语言的基础以及对于Github的使用能力。
