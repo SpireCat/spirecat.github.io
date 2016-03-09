@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "How to build a blog like this?"
-date:   2014-12-30 09:00:13
+date:   2015-2-3 09:00:13
 categories: 关于本站
 permalink: /archivers/hello
 ---
