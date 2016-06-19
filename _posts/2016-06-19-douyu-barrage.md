@@ -27,7 +27,7 @@ permalink: /archivers/douyubarrage
 
 <p><img src="/img/dybarr1.png" /></p>
 
-&#160; &#160; &#160; &#160;当看到第四个包（前三个包为建立Socket信道的三次握手）中的<policy-file-request/>信息时，我们可以确定了斗鱼弹幕使用的是Flash Socket。因为当 Flash 连接服务器需要安全策略验证时，会向服务端发送特定的字符串信息<policy-file-request/>。然后我们接着看剩下的包...[多图预警]
+&#160; &#160; &#160; &#160;当看到第四个包（前三个包为建立Socket信道的三次握手）中的[policy-file-request/]信息时，我们可以确定了斗鱼弹幕使用的是Flash Socket。因为当 Flash 连接服务器需要安全策略验证时，会向服务端发送特定的字符串信息[policy-file-request/] 。然后我们接着看剩下的包...[多图预警]
 
 <p><img src="/img/dybarr2.png" /></p>
 <p><img src="/img/dybarr3.png" /></p>
