@@ -2,7 +2,7 @@
 layout: post
 title: 潮汐——（一）我想成为我
 date: 2015-06-25 03:29:12
-categories: 诗
+categories: 矫情癌发作
 permalink: /archivers/myself
 ---
 &#160; &#160; &#160; &#160;《潮汐》系列引语——每个人心中都有一座海洋，我希望能记录下自己的这片潮汐。（注：前文学爱好者&矫情癌晚期患者随笔）

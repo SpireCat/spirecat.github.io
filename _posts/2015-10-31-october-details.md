@@ -2,7 +2,7 @@
 layout: post
 title: 关于十月
 date: 2015-10-13 10:12:24
-categories: 诗
+categories: 矫情癌发作
 permalink: /archivers/october
 ---
 <h4 align="center"><strong>十月</strong></h4>
