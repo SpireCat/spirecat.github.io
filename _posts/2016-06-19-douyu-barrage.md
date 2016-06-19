@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "斗鱼直播平台弹幕及人气抓取及分析"
-date:   2016-6-02 13:25
+date:   2016-6-19 13:25
 categories: WEB前端
 permalink: /archivers/douyubarrage
 ---
