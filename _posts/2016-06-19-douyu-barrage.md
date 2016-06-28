@@ -126,3 +126,9 @@ permalink: /archivers/douyubarrage
 &#160; &#160; &#160; &#160;很尴尬自己前段时间身体和精神的状态都不是很好，所以在平常生活与人相处以及处理这个项目时的心态都不是很好。在这里也要和最近被我有意无意冒犯伤害的人说一声抱歉，如果你们可以看到。也感谢身边一直包容自己的人。
 
 &#160; &#160; &#160; &#160;写代码是一段越走越长的路，最近的危机感也是颇有加重，好在现在可以静下心来做些事情了。
+
+# 0x09 补 2016/06/08 加入内嵌直播
+
+&#160; &#160; &#160; &#160;（决定继续做跟直播相关的研究。）在网页内嵌入直播。（下方嵌入LOL主播white55开直播间） 
+
+<embed width="750" height="450" allownetworking="all" allowscriptaccess="always" src="http://staticlive.douyutv.com/common/share/play.swf?room_id=138286" quality="high" bgcolor="#000" wmode="window" allowfullscreen="true" allowFullScreenInteractive="true" type="application/x-shockwave-flash">
