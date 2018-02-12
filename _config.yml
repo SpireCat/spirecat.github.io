@@ -1,4 +1,4 @@
-title: Hello, world! I'm Joseph Sun
+title: Hello, I'm Joseph Sun
 description: > # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
@@ -11,7 +11,7 @@ site-twitter: #if your site has a twitter account, enter it here
 # Author Settings
 author: Joseph Sun # add your name
 author-img: Joseph-Sun.jpeg # add your photo
-about-author: 一个会颠勺的码农<br />面相奇丑<br />爱喝啤酒<br />闲的时候瞎弹两下吉他<br />没别的了<br />哦对了<br />嘴特别刁 # add description
+about-author: 一个会颠勺的码农<br />面相奇丑<br />爱喝啤酒<br />闲的时候瞎弹两下吉他<br />嘴特别刁 # add description
 twitter: # add your Twitter handle
 facebook: # add your Facebook handle
 github: SpireCat # add your Github handle

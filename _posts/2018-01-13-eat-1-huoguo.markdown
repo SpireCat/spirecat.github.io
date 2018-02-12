@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 食物与人生(0)——开篇
+title: 食物与人生(1)——开篇
 date: 2018-01-12 00:00:00 +0300
 description: You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. # Add post description (optional)
-img: huoguo.jpeg # Add image post (optional)
+img: roundtable.jpeg # Add image post (optional)
 tags: [Eat] # add tag
 ---
 
