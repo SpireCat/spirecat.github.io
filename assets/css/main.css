@@ -1293,6 +1293,18 @@ a.newer-posts:hover {
   margin: 10px 0;
 }
 
+.entry-tag {
+  text-decoration: none;
+  color: #263959;
+  display: inline-block;
+  padding: 3px 10px;
+  border: 1px solid #000000;
+  background-color: #cdcdcd;
+  -webkit-transition: all .3s;
+  -o-transition: all .3s;
+  transition: all .3s;
+}
+
 .tags {
   margin: 0;
   padding: 10px;
