@@ -1,9 +1,7 @@
 ---
-layout: post
 title: 瞎说算法
 tags: Algorithm
 categories: Code
-published: false
 ---
 
 # 免责声明
