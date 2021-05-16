@@ -18,24 +18,33 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Monos
+title: ejjoo
+author: Euijong Joo
+tagline: A blog about software engineering.
 email: ejjoo7994@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Themed by ejjoo
-# baseurl: "/" # the subpath of your site, e.g. /blog
-# url: "http://ejjoo.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+  Euijong Joo | Blog.
+baseurl: "/" # the subpath of your site, e.g. /blog
+url: "http://ejjoo.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+default: 
+  scope:
+    path: "public/images"
+  values:
+    image: true
 github_username: ejjoo
 highlighter: rouge
 svg:
   optimize: true
 # Build settings
 # theme: minima
-highlighter-theme: monokai
 date_format: "%Y-%M-%D"
 plugins:
-  - jekyll-feed
+  # - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
 category_dir: category/
 tag_dir: tag/
+google_analytics: UA-155788752-1
 
 # Exclude from processing.
 # The following items will not be processed, by default.
