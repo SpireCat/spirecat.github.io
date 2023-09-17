@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 关于
+title: 关于作者
 permalink: /about/
 ---
 # 自我介绍
