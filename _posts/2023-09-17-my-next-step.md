@@ -1,8 +1,9 @@
 ---
 layout: post
-title:  "从新出发"
+title:  "谈谈自己的近况"
 date:   2023-09-17 22:56:25 +0900
 category: "生活随想"
 ---
 
-【谨以此文纪念此时此刻深陷挣扎的自己。】
+We will be back soon...
+
