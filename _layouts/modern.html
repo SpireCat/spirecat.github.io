@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title | escape }} - {% endif %}{{ site.title | escape }}</title>
+    <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+    
+    <!-- Modern Styles -->
+    <link rel="stylesheet" href="{{ '/public/css/modern-style.css' | relative_url }}">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="{{ '/public/favicon.svg' | relative_url }}">
+    
+    <!-- SEO -->
+    {% seo %}
+</head>
+<body>
+    <!-- Animated Background Particles -->
+    <div class="particles-bg" id="particles-bg"></div>
+    
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-container">
+            <a href="{{ '/' | relative_url }}" class="site-title">{{ site.title | escape }}</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="{{ '/' | relative_url }}">首页</a></li>
+                    <li class="nav-item"><a href="{{ '/about/' | relative_url }}">关于</a></li>
+                    <li class="nav-item"><a href="{{ '/category/' | relative_url }}">分类</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        {{ content }}
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; {{ 'now' | date: "%Y" }} {{ site.author | escape }}. 
+           Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> 
+           with ❤️ and AI.</p>
+    </footer>
+
+    <!-- JavaScript for Particles Animation -->
+    <script>
+        // Create animated particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles-bg');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Random position
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                
+                // Random animation delay
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                
+                // Random size variation
+                const size = Math.random() * 3 + 1;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Initialize particles when page loads
+        document.addEventListener('DOMContentLoaded', createParticles);
+        
+        // Add fade-in animation to content
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.content-card, .post-item, .hero-section');
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                
+                setTimeout(() => {
+                    el.style.transition = 'all 0.6s ease-out';
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>

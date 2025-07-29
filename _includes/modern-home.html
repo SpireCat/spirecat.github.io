@@ -1,0 +1,155 @@
+<!-- Compact Hero Section -->
+<section class="hero-section" style="padding: 2rem 0 1rem 0; margin-bottom: 2rem;">
+    <h1 class="hero-title" style="font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 0.5rem;">{{ site.title | escape }}</h1>
+    <p class="hero-subtitle" style="font-size: 1rem; margin-bottom: 0;">{{ site.tagline | escape }}</p>
+</section>
+
+<!-- Main Content Area -->
+<div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; align-items: start;">
+    <!-- Articles Section (Main Content) -->
+    <section id="articles">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+            <h2 style="font-size: 1.5rem; font-weight: 600; color: var(--text-primary); margin: 0;">最新文章</h2>
+            {%- if site.posts.size > 0 -%}
+                <span style="color: var(--text-muted); font-size: 0.9rem;">共 {{ site.posts.size }} 篇</span>
+            {%- endif -%}
+        </div>
+        
+        {%- if site.posts.size > 0 -%}
+            <div class="post-list" style="display: grid; gap: 1.5rem;">
+                {%- for post in site.posts -%}
+                <article class="post-item" style="padding: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                        <div style="flex: 1;">
+                            {%- assign date_format = "%Y年%m月%d日" -%}
+                            <time class="post-date" style="font-size: 0.85rem;">{{ post.date | date: date_format }}</time>
+                            <h3 style="margin: 0.5rem 0;">
+                                <a class="post-link" href="{{ post.url | relative_url }}" style="font-size: 1.25rem; line-height: 1.4;">
+                                    {{ post.title | escape }}
+                                </a>
+                            </h3>
+                            {%- if post.excerpt -%}
+                                <div class="post-excerpt" style="margin-top: 0.75rem; line-height: 1.6;">
+                                    {{ post.excerpt | strip_html | truncate: 200 }}
+                                </div>
+                            {%- endif -%}
+                        </div>
+                        {%- if post.categories.size > 0 -%}
+                            <div style="margin-left: 1rem;">
+                                {%- for category in post.categories limit:1 -%}
+                                    <span style="background: var(--accent-gradient); color: white; padding: 0.25rem 0.75rem; border-radius: var(--radius-sm); font-size: 0.75rem; white-space: nowrap;">
+                                        {{ category }}
+                                    </span>
+                                {%- endfor -%}
+                            </div>
+                        {%- endif -%}
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 1rem; border-top: 1px solid var(--card-border);">
+                        <a href="{{ post.url | relative_url }}" style="color: var(--accent-primary); font-size: 0.9rem; text-decoration: none;">
+                            阅读全文 →
+                        </a>
+                        <div style="color: var(--text-muted); font-size: 0.8rem;">
+                            {{ post.content | strip_html | number_of_words }} 字
+                        </div>
+                    </div>
+                </article>
+                {%- endfor -%}
+            </div>
+        {%- else -%}
+            <div class="content-card" style="text-align: center; padding: 3rem 2rem;">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">📝</div>
+                <h3 style="color: var(--text-primary); margin-bottom: 1rem;">暂无文章</h3>
+                <p style="color: var(--text-muted);">精彩内容正在准备中，敬请期待...</p>
+            </div>
+        {%- endif -%}
+    </section>
+
+    <!-- Sidebar -->
+    <aside>
+        <!-- Quick About -->
+        <div class="content-card" style="margin-bottom: 1.5rem;">
+            <div class="card-header">
+                <div class="card-icon" style="width: 32px; height: 32px; font-size: 1rem;">👨‍💻</div>
+                <h3 class="card-title" style="font-size: 1.1rem;">关于作者</h3>
+            </div>
+            <div class="card-content">
+                <p style="font-size: 0.9rem; line-height: 1.5;">Java后台工程师，专注于构建高质量的软件系统。</p>
+                <div style="margin-top: 1rem;">
+                    <a href="/about/" style="color: var(--accent-primary); font-size: 0.85rem; text-decoration: none;">
+                        了解更多 →
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Categories -->
+        <div class="content-card" style="margin-bottom: 1.5rem;">
+            <div class="card-header">
+                <div class="card-icon" style="width: 32px; height: 32px; font-size: 1rem;">📚</div>
+                <h3 class="card-title" style="font-size: 1.1rem;">分类</h3>
+            </div>
+            <div class="card-content">
+                <div style="display: grid; gap: 0.5rem;">
+                    <a href="/category/" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; padding: 0.25rem 0; border-bottom: 1px solid transparent; transition: all 0.2s ease;">Java 开发</a>
+                    <a href="/category/" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; padding: 0.25rem 0; border-bottom: 1px solid transparent; transition: all 0.2s ease;">系统设计</a>
+                    <a href="/category/" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; padding: 0.25rem 0; border-bottom: 1px solid transparent; transition: all 0.2s ease;">网络协议</a>
+                    <a href="/category/" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; padding: 0.25rem 0; border-bottom: 1px solid transparent; transition: all 0.2s ease;">计算机科学</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tech Tags -->
+        <div class="content-card">
+            <div class="card-header">
+                <div class="card-icon" style="width: 32px; height: 32px; font-size: 1rem;">🏷️</div>
+                <h3 class="card-title" style="font-size: 1.1rem;">技术标签</h3>
+            </div>
+            <div class="card-content">
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                    <span style="background: var(--card-bg); border: 1px solid var(--card-border); color: var(--text-secondary); padding: 0.25rem 0.5rem; border-radius: var(--radius-sm); font-size: 0.75rem;">Java</span>
+                    <span style="background: var(--card-bg); border: 1px solid var(--card-border); color: var(--text-secondary); padding: 0.25rem 0.5rem; border-radius: var(--radius-sm); font-size: 0.75rem;">Spring</span>
+                    <span style="background: var(--card-bg); border: 1px solid var(--card-border); color: var(--text-secondary); padding: 0.25rem 0.5rem; border-radius: var(--radius-sm); font-size: 0.75rem;">微服务</span>
+                    <span style="background: var(--card-bg); border: 1px solid var(--card-border); color: var(--text-secondary); padding: 0.25rem 0.5rem; border-radius: var(--radius-sm); font-size: 0.75rem;">分布式</span>
+                </div>
+            </div>
+        </div>
+    </aside>
+</div>
+
+<!-- Responsive Layout for Mobile -->
+<style>
+@media (max-width: 768px) {
+    div[style*="grid-template-columns: 2fr 1fr"] {
+        display: block !important;
+    }
+    
+    aside {
+        margin-top: 2rem;
+    }
+    
+    aside .content-card {
+        margin-bottom: 1rem !important;
+    }
+}
+</style>
+
+<!-- Call to Action Section -->
+<section class="hero-section" style="padding: 2rem 0;">
+    <h2 style="font-size: 1.8rem; margin-bottom: 1rem;">保持联系</h2>
+    <p style="margin-bottom: 1.5rem;">关注我的技术分享，一起探索软件工程的无限可能</p>
+    <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <a href="https://github.com/spirecat" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: var(--radius-lg); color: var(--text-primary); text-decoration: none; transition: all 0.3s ease;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+            GitHub
+        </a>
+        <a href="mailto:{{ site.email }}" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: var(--accent-gradient); color: white; text-decoration: none; border-radius: var(--radius-lg); transition: all 0.3s ease;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            联系我
+        </a>
+    </div>
+</section>

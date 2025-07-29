@@ -20,13 +20,20 @@ group :jekyll_plugins do
   gem 'jekyll-sitemap'
 end
 
-# Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
-# and associated library.
-install_if -> { RUBY_PLATFORM =~ %r!mingw|mswin|java! } do
-  gem "tzinfo", "~> 1.2"
-  gem "tzinfo-data"
+  # Windows specific gems
+platform :mswin, :mingw, :x64_mingw do
+  gem 'tzinfo', '~> 1.2'
+  gem 'tzinfo-data'
+  gem 'wdm', '>= 0.1.0'
 end
 
+# Add webrick as it's no longer bundled with Ruby
+gem "webrick", "~> 1.7"
+
+gem "csv"
+gem "base64"
+gem "bigdecimal"
+
 # Performance-booster for watching directories on Windows
-gem "wdm", "~> 0.1.1", :install_if => Gem.win_platform?
+# gem "wdm", "~> 0.1.1", :install_if => Gem.win_platform?
 

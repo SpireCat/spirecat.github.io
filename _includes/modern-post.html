@@ -1,0 +1,222 @@
+<!-- Article Header -->
+<header class="post-header" style="text-align: center; padding: 2rem 0; margin-bottom: 2rem; border-bottom: 1px solid var(--card-border);">
+    <div style="margin-bottom: 1rem;">
+        {%- if page.categories.size > 0 -%}
+            {%- for category in page.categories limit:1 -%}
+                <span style="background: var(--accent-gradient); color: white; padding: 0.5rem 1rem; border-radius: var(--radius-lg); font-size: 0.9rem; font-weight: 500;">
+                    {{ category }}
+                </span>
+            {%- endfor -%}
+        {%- endif -%}
+    </div>
+    
+    <h1 class="post-title" style="font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 700; margin-bottom: 1rem; background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1.2;">
+        {{ page.title | escape }}
+    </h1>
+    
+    <div style="display: flex; justify-content: center; align-items: center; gap: 1.5rem; color: var(--text-muted); font-size: 0.9rem; flex-wrap: wrap;">
+        <time class="post-date" datetime="{{ page.date | date_to_xmlschema }}">
+            {%- assign date_format = "%Y年%m月%d日" -%}
+            📅 {{ page.date | date: date_format }}
+        </time>
+        
+        <span>
+            📖 {{ content | strip_html | number_of_words }} 字
+        </span>
+        
+        <span>
+            ⏱️ 约 {{ content | strip_html | number_of_words | divided_by: 200 | plus: 1 }} 分钟阅读
+        </span>
+    </div>
+</header>
+
+<!-- Article Content -->
+<article class="post-content" style="max-width: 800px; margin: 0 auto; padding: 0 1rem;">
+    <div style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: var(--radius-lg); padding: 2rem; backdrop-filter: blur(10px); line-height: 1.8; font-size: 1.1rem;">
+        {{ content }}
+    </div>
+</article>
+
+<!-- Article Footer -->
+<footer class="post-footer" style="max-width: 800px; margin: 2rem auto 0; padding: 0 1rem;">
+    <!-- Tags -->
+    {%- if page.tags.size > 0 -%}
+    <div style="margin-bottom: 2rem;">
+        <h3 style="color: var(--text-primary); margin-bottom: 1rem; font-size: 1.1rem;">🏷️ 标签</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+            {%- for tag in page.tags -%}
+                <span style="background: var(--card-bg); border: 1px solid var(--card-border); color: var(--text-secondary); padding: 0.25rem 0.75rem; border-radius: var(--radius-sm); font-size: 0.85rem;">
+                    {{ tag }}
+                </span>
+            {%- endfor -%}
+        </div>
+    </div>
+    {%- endif -%}
+    
+    <!-- Navigation -->
+    <div class="post-navigation" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem;">
+        {%- if page.previous.url -%}
+        <a href="{{ page.previous.url | relative_url }}" class="nav-link prev" style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: var(--radius-lg); padding: 1rem; text-decoration: none; transition: all 0.3s ease; display: block;">
+            <div style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.5rem;">← 上一篇</div>
+            <div style="color: var(--text-primary); font-weight: 500;">{{ page.previous.title | truncate: 40 }}</div>
+        </a>
+        {%- else -%}
+        <div></div>
+        {%- endif -%}
+        
+        {%- if page.next.url -%}
+        <a href="{{ page.next.url | relative_url }}" class="nav-link next" style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: var(--radius-lg); padding: 1rem; text-decoration: none; transition: all 0.3s ease; display: block; text-align: right;">
+            <div style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.5rem;">下一篇 →</div>
+            <div style="color: var(--text-primary); font-weight: 500;">{{ page.next.title | truncate: 40 }}</div>
+        </a>
+        {%- else -%}
+        <div></div>
+        {%- endif -%}
+    </div>
+    
+    <!-- Back to Home -->
+    <div style="text-align: center; margin-bottom: 2rem;">
+        <a href="{{ '/' | relative_url }}" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: var(--accent-gradient); color: white; text-decoration: none; border-radius: var(--radius-lg); font-weight: 600; transition: all 0.3s ease;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9,22 9,12 15,12 15,22"></polyline>
+            </svg>
+            返回首页
+        </a>
+    </div>
+</footer>
+
+<!-- Enhanced Styles for Article Content -->
+<style>
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content h6 {
+    color: var(--text-primary);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.post-content h1 { font-size: 1.8rem; }
+.post-content h2 { font-size: 1.5rem; color: var(--accent-primary); }
+.post-content h3 { font-size: 1.3rem; }
+.post-content h4 { font-size: 1.1rem; }
+
+.post-content p {
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+}
+
+.post-content ul,
+.post-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+    color: var(--text-secondary);
+}
+
+.post-content li {
+    margin-bottom: 0.5rem;
+}
+
+.post-content blockquote {
+    border-left: 4px solid var(--accent-primary);
+    background: rgba(0, 212, 255, 0.1);
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+.post-content code {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    padding: 0.2rem 0.4rem;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    color: var(--accent-primary);
+}
+
+.post-content pre {
+    background: var(--bg-primary);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+}
+
+.post-content pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--text-secondary);
+}
+
+.post-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+    margin: 1.5rem 0;
+    box-shadow: var(--shadow-card);
+}
+
+.post-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    background: var(--card-bg);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.post-content th,
+.post-content td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.post-content th {
+    background: var(--accent-gradient);
+    color: white;
+    font-weight: 600;
+}
+
+.post-content a {
+    color: var(--accent-primary);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.post-content a:hover {
+    border-bottom-color: var(--accent-primary);
+}
+
+.nav-link:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card);
+    border-color: var(--accent-primary);
+}
+
+@media (max-width: 768px) {
+    .post-navigation {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .post-content {
+        padding: 0 0.5rem !important;
+    }
+    
+    .post-content > div {
+        padding: 1.5rem !important;
+    }
+}
+</style>
