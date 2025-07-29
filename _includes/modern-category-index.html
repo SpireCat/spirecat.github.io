@@ -1,0 +1,144 @@
+<!-- Category Index Header -->
+<header class="category-index-header" style="text-align: center; padding: 2rem 0; margin-bottom: 2rem; border-bottom: 1px solid var(--card-border);">
+    <div style="margin-bottom: 1rem;">
+        <span style="background: var(--accent-gradient); color: white; padding: 0.5rem 1rem; border-radius: var(--radius-lg); font-size: 0.9rem; font-weight: 500;">
+            📂 分类
+        </span>
+    </div>
+    
+    <h1 style="font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 700; margin-bottom: 1rem; background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1.2;">
+        所有分类
+    </h1>
+    
+    <div style="color: var(--text-muted); font-size: 1rem;">
+        {%- assign total_posts = site.posts.size -%}
+        共 {{ site.categories.size }} 个分类，{{ total_posts }} 篇文章
+    </div>
+</header>
+
+<!-- Categories Grid -->
+<div class="categories-content" style="max-width: 1000px; margin: 0 auto; padding: 0 1rem;">
+    <div style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: var(--radius-lg); padding: 2rem; backdrop-filter: blur(10px);">
+        
+        <div class="categories-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+            {%- for category in site.categories -%}
+            {%- assign category_name = category[0] -%}
+            {%- assign category_posts = category[1] -%}
+            
+            <div class="category-card" style="background: var(--bg-primary); border: 1px solid var(--card-border); border-radius: var(--radius-md); padding: 1.5rem; transition: all 0.3s ease; position: relative; overflow: hidden;">
+                <!-- Category Background Pattern -->
+                <div style="position: absolute; top: -20px; right: -20px; width: 80px; height: 80px; background: var(--accent-gradient); border-radius: 50%; opacity: 0.1; transform: scale(0.8);"></div>
+                
+                <!-- Category Header -->
+                <div style="position: relative; z-index: 1;">
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                        <h3 style="color: var(--text-primary); font-size: 1.2rem; font-weight: 600; margin: 0;">
+                            {{ category_name }}
+                        </h3>
+                        <span style="background: var(--accent-gradient); color: white; padding: 0.25rem 0.75rem; border-radius: var(--radius-lg); font-size: 0.8rem; font-weight: 500;">
+                            {{ category_posts.size }} 篇
+                        </span>
+                    </div>
+                    
+                    <!-- Recent Posts Preview -->
+                    <div style="margin-bottom: 1.5rem;">
+                        {%- for post in category_posts limit: 3 -%}
+                        <div class="post-item" style="margin-bottom: 0.5rem; padding-bottom: 0.5rem;">
+                            <a href="{{ post.url | relative_url }}" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; line-height: 1.4; display: block; transition: all 0.2s ease;">
+                                {{ post.title | truncate: 40 }}
+                            </a>
+                            <time style="color: var(--text-muted); font-size: 0.75rem;">
+                                {%- assign date_format = "%m月%d日" -%}
+                                {{ post.date | date: date_format }}
+                            </time>
+                        </div>
+                        {%- endfor -%}
+                        
+                        {%- if category_posts.size > 3 -%}
+                        <div style="color: var(--text-muted); font-size: 0.8rem; text-align: center; margin-top: 0.5rem;">
+                            还有 {{ category_posts.size | minus: 3 }} 篇文章...
+                        </div>
+                        {%- endif -%}
+                    </div>
+                    
+                    <!-- View Category Button -->
+                    <a href="/categories/{{ category_name | slugify }}.html" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: var(--accent-gradient); color: white; text-decoration: none; border-radius: var(--radius-md); font-size: 0.9rem; font-weight: 500; transition: all 0.3s ease; width: 100%; justify-content: center;">
+                        查看分类
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            {%- endfor -%}
+        </div>
+        
+        <!-- Empty State -->
+        {%- if site.categories.size == 0 -%}
+        <div style="text-align: center; padding: 3rem 1rem; color: var(--text-muted);">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">📂</div>
+            <h3 style="color: var(--text-secondary); margin-bottom: 0.5rem;">暂无分类</h3>
+            <p>还没有创建任何分类</p>
+        </div>
+        {%- endif -%}
+    </div>
+</div>
+
+<!-- Category Index Footer -->
+<footer class="category-index-footer" style="max-width: 1000px; margin: 2rem auto 0; padding: 0 1rem;">
+    <!-- Back to Home -->
+    <div style="text-align: center; margin-bottom: 2rem;">
+        <a href="{{ '/' | relative_url }}" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: var(--accent-gradient); color: white; text-decoration: none; border-radius: var(--radius-lg); font-weight: 600; transition: all 0.3s ease;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9,22 9,12 15,12 15,22"></polyline>
+            </svg>
+            返回首页
+        </a>
+    </div>
+</footer>
+
+<!-- Enhanced Styles -->
+<style>
+.category-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card);
+    border-color: var(--accent-primary);
+}
+
+.category-card:hover .category-card-bg {
+    opacity: 0.2;
+    transform: scale(1.1);
+}
+
+.category-card a:hover {
+    color: var(--accent-primary);
+}
+
+.category-card a[href*="查看分类"]:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 212, 255, 0.3);
+}
+
+.post-item:not(:last-child) {
+    border-bottom: 1px solid var(--card-border);
+}
+
+@media (max-width: 768px) {
+    .categories-content {
+        padding: 0 0.5rem !important;
+    }
+    
+    .categories-content > div {
+        padding: 1.5rem !important;
+    }
+    
+    .categories-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .category-card {
+        padding: 1rem !important;
+    }
+}
+</style>

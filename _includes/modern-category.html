@@ -1,0 +1,156 @@
+<!-- Category Header -->
+<header class="category-header" style="text-align: center; padding: 2rem 0; margin-bottom: 2rem; border-bottom: 1px solid var(--card-border);">
+    <div style="margin-bottom: 1rem;">
+        <span style="background: var(--accent-gradient); color: white; padding: 0.5rem 1rem; border-radius: var(--radius-lg); font-size: 0.9rem; font-weight: 500;">
+            📂 分类
+        </span>
+    </div>
+    
+    <h1 style="font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 700; margin-bottom: 1rem; background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1.2;">
+        {{ page.title | escape }}
+    </h1>
+    
+    <div style="color: var(--text-muted); font-size: 1rem;">
+        {%- assign category_posts = site.categories[page.category] -%}
+        共 {{ category_posts.size }} 篇文章
+    </div>
+</header>
+
+<!-- Category Content -->
+<div class="category-content" style="max-width: 1000px; margin: 0 auto; padding: 0 1rem;">
+    <div style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: var(--radius-lg); padding: 2rem; backdrop-filter: blur(10px);">
+        
+        <!-- Articles List -->
+        <div class="articles-grid" style="display: grid; gap: 1.5rem;">
+            {%- assign category_posts = site.categories[page.category] -%}
+            {%- for post in category_posts -%}
+            <article class="article-card" style="background: var(--bg-primary); border: 1px solid var(--card-border); border-radius: var(--radius-md); padding: 1.5rem; transition: all 0.3s ease;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <!-- Article Date -->
+                        <div style="margin-bottom: 0.5rem;">
+                            <time style="color: var(--text-muted); font-size: 0.9rem;">
+                                {%- assign date_format = "%Y年%m月%d日" -%}
+                                📅 {{ post.date | date: date_format }}
+                            </time>
+                        </div>
+                        
+                        <!-- Article Title -->
+                        <h2 style="margin-bottom: 1rem;">
+                            <a href="{{ post.url | relative_url }}" style="color: var(--text-primary); text-decoration: none; font-size: 1.3rem; font-weight: 600; line-height: 1.3; transition: all 0.2s ease;">
+                                {{ post.title | escape }}
+                            </a>
+                        </h2>
+                        
+                        <!-- Article Excerpt -->
+                        {%- if post.excerpt -%}
+                        <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
+                            {{ post.excerpt | strip_html | truncate: 150 }}
+                        </p>
+                        {%- endif -%}
+                        
+                        <!-- Article Meta -->
+                        <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; color: var(--text-muted); font-size: 0.85rem;">
+                            <span>📖 {{ post.content | strip_html | number_of_words }} 字</span>
+                            <span>⏱️ 约 {{ post.content | strip_html | number_of_words | divided_by: 200 | plus: 1 }} 分钟阅读</span>
+                            
+                            {%- if post.tags.size > 0 -%}
+                            <div style="display: flex; gap: 0.25rem; flex-wrap: wrap;">
+                                {%- for tag in post.tags limit: 3 -%}
+                                <span style="background: var(--card-bg); border: 1px solid var(--card-border); padding: 0.2rem 0.5rem; border-radius: var(--radius-sm); font-size: 0.75rem;">
+                                    {{ tag }}
+                                </span>
+                                {%- endfor -%}
+                            </div>
+                            {%- endif -%}
+                        </div>
+                    </div>
+                    
+                    <!-- Read More Button -->
+                    <div style="flex-shrink: 0;">
+                        <a href="{{ post.url | relative_url }}" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: var(--accent-gradient); color: white; text-decoration: none; border-radius: var(--radius-md); font-size: 0.9rem; font-weight: 500; transition: all 0.3s ease; white-space: nowrap;">
+                            阅读全文
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+            {%- endfor -%}
+        </div>
+        
+        <!-- Empty State -->
+        {%- if category_posts.size == 0 -%}
+        <div style="text-align: center; padding: 3rem 1rem; color: var(--text-muted);">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">📝</div>
+            <h3 style="color: var(--text-secondary); margin-bottom: 0.5rem;">暂无文章</h3>
+            <p>该分类下还没有发布任何文章</p>
+        </div>
+        {%- endif -%}
+    </div>
+</div>
+
+<!-- Category Footer -->
+<footer class="category-footer" style="max-width: 1000px; margin: 2rem auto 0; padding: 0 1rem;">
+    <!-- Back to Home -->
+    <div style="text-align: center; margin-bottom: 2rem;">
+        <a href="{{ '/' | relative_url }}" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: var(--accent-gradient); color: white; text-decoration: none; border-radius: var(--radius-lg); font-weight: 600; transition: all 0.3s ease; margin-right: 1rem;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9,22 9,12 15,12 15,22"></polyline>
+            </svg>
+            返回首页
+        </a>
+        
+        <a href="{{ '/category.html' | relative_url }}" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: var(--card-bg); border: 1px solid var(--card-border); color: var(--text-primary); text-decoration: none; border-radius: var(--radius-lg); font-weight: 600; transition: all 0.3s ease;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
+                <path d="M8 21v-4a2 2 0 012-2h4a2 2 0 012 2v4"></path>
+            </svg>
+            所有分类
+        </a>
+    </div>
+</footer>
+
+<!-- Enhanced Styles -->
+<style>
+.article-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card);
+    border-color: var(--accent-primary);
+}
+
+.article-card h2 a:hover {
+    color: var(--accent-primary);
+}
+
+.article-card a[href*="阅读全文"]:hover {
+    transform: translateX(2px);
+    box-shadow: 0 4px 12px rgba(0, 212, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+    .category-content {
+        padding: 0 0.5rem !important;
+    }
+    
+    .category-content > div {
+        padding: 1.5rem !important;
+    }
+    
+    .article-card {
+        padding: 1rem !important;
+    }
+    
+    .article-card > div {
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
+    
+    .article-card > div > div:last-child {
+        margin-top: 1rem;
+        align-self: flex-start;
+    }
+}
+</style>
