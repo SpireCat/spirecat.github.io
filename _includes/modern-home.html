@@ -22,12 +22,12 @@
                     <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
                         <div style="flex: 1;">
                             {%- assign date_format = "%Y年%m月%d日" -%}
-                            <time class="post-date" style="font-size: 0.85rem;">{{ post.date | date: date_format }}</time>
-                            <h3 style="margin: 0.5rem 0;">
-                                <a class="post-link" href="{{ post.url | relative_url }}" style="font-size: 1.25rem; line-height: 1.4;">
+                            <time class="post-date-muted" style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.5rem; display: block;">{{ post.date | date: date_format }}</time>
+                            <div class="post-title-container" style="background: var(--accent-gradient); color: white; padding: 1rem; border-radius: var(--radius-md); margin-bottom: 0.75rem; display: flex; align-items: center; min-height: 4rem;">
+                                <a class="post-link" href="{{ post.url | relative_url }}" style="font-size: 1.25rem; line-height: 1; color: white; text-decoration: none; margin: 0; padding: 0; width: 100%; display: block;">
                                     {{ post.title | escape }}
                                 </a>
-                            </h3>
+                            </div>
                             {%- if post.excerpt -%}
                                 <div class="post-excerpt" style="margin-top: 0.75rem; line-height: 1.6;">
                                     {{ post.excerpt | strip_html | truncate: 200 }}
@@ -37,7 +37,7 @@
                         {%- if post.categories.size > 0 -%}
                             <div style="margin-left: 1rem;">
                                 {%- for category in post.categories limit:1 -%}
-                                    <span style="background: var(--accent-gradient); color: white; padding: 0.25rem 0.75rem; border-radius: var(--radius-sm); font-size: 0.75rem; white-space: nowrap;">
+                                    <span style="background: var(--card-bg); border: 1px solid var(--card-border); color: var(--text-secondary); padding: 0.25rem 0.75rem; border-radius: var(--radius-sm); font-size: 0.75rem; white-space: nowrap;">
                                         {{ category }}
                                     </span>
                                 {%- endfor -%}
